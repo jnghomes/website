@@ -12,9 +12,9 @@ export default function Home() {
         <WelcomePage></WelcomePage>
         <Projects></Projects>
         <SliderPage></SliderPage>
-        <div className="w-full my-16 p-6 bg-primaryAccent text-black rounded-lg font-extrabold text-2xl">
+        {/* <div className="w-full my-16 p-6 bg-primaryAccent text-black rounded-lg font-extrabold text-2xl text-center">
           <Heading text="tagline to be display here" color="black"></Heading>
-        </div>
+        </div> */}
       </div>
     </>
   );

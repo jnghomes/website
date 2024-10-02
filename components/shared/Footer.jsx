@@ -22,7 +22,7 @@ function Footer() {
         </div>
 
         <p className="mt-12 text-center text-sm text-gray-500">
-          Copyright &copy; 2022. All rights reserved.
+          Copyright &copy; 2024. All rights reserved.
         </p>
       </footer>
     </>

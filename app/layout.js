@@ -3,6 +3,7 @@ import Navbar from "@/components/shared/Navbar";
 import "./globals.css";
 import { Open_Sans } from "next/font/google";
 import Footer from "@/components/shared/Footer";
+import CustomCursor from "@/components/shared/CustomCursor";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -26,8 +27,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-<html lang="en">
-<head>
+    <html lang="en">
+      <head>
         {/* Add external styles here */}
         <link
           rel="stylesheet"
@@ -41,15 +42,13 @@ export default function RootLayout({ children }) {
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
         />
       </head>
-  <body
-    className={openSans.className}
-  >
-    <Navbar></Navbar>
-      {children}
-    <Footer></Footer>
-  </body>
-</html>
-
+      <body className={openSans.className}>
+        <CustomCursor></CustomCursor>
+        <Navbar></Navbar>
+        {children}
+        <Footer></Footer>
+      </body>
+    </html>
   );
 }
 // className={`${geistSans.variable} ${geistMono.variable} antialiased`}

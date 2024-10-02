@@ -33,7 +33,7 @@ function SliderPage() {
       <div className="slider-container">
         <Slider {...settings}>
           {[1, 2, 3, 4, 5].map((item) => (
-            <div key={item} className="w-full aspect-video bg-primaryAccent">
+            <div key={item} className="w-full aspect-video bg-primaryAccent rounded-lg">
               <h1 className="text-black">{item}</h1>
             </div>
           ))}
