@@ -13,6 +13,7 @@
 }
 html {
   scroll-behavior: smooth;
+  font-size: 62.5%;
 }
 
 body {
@@ -104,7 +105,6 @@ body::-webkit-scrollbar {
   left: 50%;
 }
 
-/* app/styles/globals.css */
 .custom-cursor {
   position: fixed;
   width: 20px; /* Default size */
@@ -120,6 +120,17 @@ body::-webkit-scrollbar {
 
 .hoverMe:hover + .custom-cursor{
   width: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 600px) {
+  html {
+    font-size: 16px;
+  }
 }
 
 @layer utilities {

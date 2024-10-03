@@ -1,11 +1,38 @@
-import React from 'react'
+import React from "react";
+import * as motion from "framer-motion/client";
 
-function Heading({text,color}) {
+const titleVariants = {
+  hidden: {
+    opacity: 0,
+    y: 50,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1,
+      ease: [0.2, 0.6, 0.4, 1],
+    },
+  },
+};
+
+
+function Heading({ text, color }) {
   return (
-    <h1 className={color?"scroll-m-20 pb-2 text-4xl font-extrabold tracking-tight lg:text-5xl text-black":"scroll-m-20 pb-2 text-4xl font-extrabold tracking-tight lg:text-5xl text-gray-100"}>
+    <motion.h1
+    variants={titleVariants}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+      className={
+        color
+          ? "scroll-m-20 pb-2 text-4xl font-extrabold tracking-tight lg:text-5xl text-black"
+          : "scroll-m-20 pb-2 text-4xl font-extrabold tracking-tight lg:text-5xl text-gray-100"
+      }
+    >
       {text}
-    </h1>
-  )
+    </motion.h1>
+  );
 }
 
-export default Heading
+export default Heading;

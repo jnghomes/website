@@ -3,6 +3,7 @@ import { links } from "@/utils/constants"; // Ensure 'links' is defined correctl
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation"; // Use router to get the current path
+import { motion } from "framer-motion"; // Import motion from framer-motion
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,46 +35,75 @@ function Navbar() {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
   }, [isOpen]);
 
+  // Animation variants for tab items
+  const tabVariants = {
+    hidden: { opacity: 0, scale: 0.9, y: 20 },
+    visible: (index) => ({
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: { delay: index * 0.2, duration: 1 },
+    }),
+    exit: {
+      opacity: 0,
+      scale: 0.9,
+      y: 20,
+      transition: { ease: "easeInOut" },
+    },
+  };
+
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-50 bg-background text-white transition-transform duration-300 ease-in-out  ${
+        className={`fixed top-0 left-0 w-full z-50 bg-background text-white transition-transform duration-300 ease-in-out ${
           showNavbar ? "translate-y-0" : "-translate-y-full"
         }`}
       >
         <div className="w-full px-4 md:px-0 md:max-w-[80vw] mx-auto">
+          <div className="flex justify-between items-center p-4">
+            <div className="text-2xl font-bold">Brand</div>
 
-        
-        <div className="flex justify-between items-center p-4">
-          <div className="text-2xl font-bold">Brand</div>
-
-          <div id="nav-icon3" className={isOpen?"open":""} onClick={() => setIsOpen((prev) => !prev)}>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+            <div
+              id="nav-icon3"
+              className={isOpen ? "open" : ""}
+              onClick={() => setIsOpen((prev) => !prev)}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
-        </div>
         </div>
       </nav>
 
       {/* Mobile Menu */}
-      <div
+      <motion.div
         className={`fixed top-0 left-0 w-full h-full bg-background z-40 transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
+        initial={{ x: "100%" }} // Initial position for the sliding animation
+        animate={{ x: isOpen ? 0 : "100%" }} // Slide in/out based on isOpen
+        transition={{ duration: 0.3 }}
       >
         <ul className="flex flex-col items-center justify-center h-full text-white space-y-8">
           {links?.map((item, index) => {
             const isActive = path === item.link; // Check if current route matches the link
             return (
-              <li key={index} className="relative text-4xl group">
+              <motion.li
+                key={index}
+                className="relative text-4xl group"
+                variants={tabVariants}
+                initial="hidden"
+                animate={isOpen ? "visible" : "exit"} // Animate based on isOpen state
+                custom={index} // Pass the index to the variants
+              >
                 <Link
-                  href={item?.link}
+                  href={item.link}
                   onClick={() => setIsOpen(false)}
-                  className={`inline-block ${isActive ? "text-white" : ""}`} // Use inline-block for text width
+                  className={`inline-block ${isActive ? "text-white" : ""} transition-colors duration-300`} // Use inline-block for text width
                 >
-                  {item?.name}
+                  {item.name}
                 </Link>
                 {/* Underline that only spans the text width */}
                 <span
@@ -81,12 +111,11 @@ function Navbar() {
                     isActive ? "w-full" : "w-0 group-hover:w-full"
                   }`}
                 ></span>
-              </li>
+              </motion.li>
             );
           })}
         </ul>
-        
-      </div>
+      </motion.div>
     </>
   );
 }

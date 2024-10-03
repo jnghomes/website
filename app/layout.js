@@ -45,7 +45,10 @@ export default function RootLayout({ children }) {
       <body className={openSans.className}>
         <CustomCursor></CustomCursor>
         <Navbar></Navbar>
+        <div className="min-h-screen">
+
         {children}
+        </div>
         <Footer></Footer>
       </body>
     </html>

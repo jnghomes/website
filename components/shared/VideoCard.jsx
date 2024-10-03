@@ -1,8 +1,28 @@
 import React from "react";
+import * as motion from "framer-motion/client";
 
 function VideoCard({ index }) {
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20, // Slide up effect
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        delay:0.5,
+        ease: [0.2, 0.6, 0.4, 1],
+      },
+    },
+  };
   return (
-    <article
+    <motion.article
+    variants={cardVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
       className={
         index % 2 !== 0
           ? "flex flex-col justify-between lg:flex-row gap-4 w-[100%] "
@@ -24,7 +44,7 @@ function VideoCard({ index }) {
           dignissimos. Molestias explicabo corporis voluptatem?
         </p>
       </div>
-    </article>
+    </motion.article>
   );
 }
 

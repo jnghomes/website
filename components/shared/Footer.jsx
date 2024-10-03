@@ -13,7 +13,7 @@ function Footer() {
           <ul className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
             {links.map((item, index) => {
               return (
-                <li key={index}>
+                <li key={index} className="text-sm">
                   <Link href={item?.link}>{item?.name}</Link>
                 </li>
               );
