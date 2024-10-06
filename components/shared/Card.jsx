@@ -32,13 +32,13 @@ function Card() {
       viewport={{ once: true }} // Animation plays only once
     >
       <motion.div
-        className="aspect-[4/5] w-[100%] bg-gray-700 opacity-25 rounded-md"
+        className="aspect-[4/5] w-[100%] bg-gray-100 rounded-md"
         whileHover={hoverEffect} // Apply scale effect to this div on hover
         transition={{ duration: 0.3 }} // Transition effect for the scale
       ></motion.div>
 
       <div className="flex flex-col gap-2">
-        <h4 className="scroll-m-20 text-2xl font-semibold tracking-tight text-gray-100">
+        <h4 className="scroll-m-20 text-2xl font-semibold tracking-tight text-black">
           Title
         </h4>
 

@@ -55,7 +55,7 @@ function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-50 bg-background text-white transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 w-full z-50 bg-background text-black transition-transform duration-300 ease-in-out ${
           showNavbar ? "translate-y-0" : "-translate-y-full"
         }`}
       >
@@ -86,7 +86,7 @@ function Navbar() {
         animate={{ x: isOpen ? 0 : "100%" }} // Slide in/out based on isOpen
         transition={{ duration: 0.3 }}
       >
-        <ul className="flex flex-col items-center justify-center h-full text-white space-y-8">
+        <ul className="flex flex-col items-center justify-center h-full text-black space-y-8">
           {links?.map((item, index) => {
             const isActive = path === item.link; // Check if current route matches the link
             return (
@@ -101,7 +101,7 @@ function Navbar() {
                 <Link
                   href={item.link}
                   onClick={() => setIsOpen(false)}
-                  className={`inline-block ${isActive ? "text-white" : ""} transition-colors duration-300`} // Use inline-block for text width
+                  className={`inline-block ${isActive ? "text-black" : ""} transition-colors duration-300`} // Use inline-block for text width
                 >
                   {item.name}
                 </Link>

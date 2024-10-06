@@ -29,10 +29,10 @@ function VideoCard({ index }) {
           : "flex flex-col justify-between lg:flex-row-reverse gap-4 w-[100%]"
       }
     >
-      <div className="aspect-[16/9] w-[100%] lg:w-[45%] bg-gray-700 opacity-25 rounded-md"></div>
+      <div className="aspect-[16/9] w-[100%] lg:w-[45%] bg-gray-100 rounded-md"></div>
 
       <div className="flex flex-col gap-2 w-[100%] lg:w-[45%]">
-        <h4 className="scroll-m-20 text-2xl font-semibold tracking-tight text-gray-100 ">
+        <h4 className="scroll-m-20 text-2xl font-semibold tracking-tight text-black ">
           Title
         </h4>
         <span className="w-64 h-[1px] bg-primaryAccent"></span>

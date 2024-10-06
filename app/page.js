@@ -18,7 +18,7 @@ export default function Home() {
         <Projects></Projects>
         <SliderPage></SliderPage>
       </div>
-      <Preloader></Preloader>
+      {/* <Preloader></Preloader> */}
     </>
   );
 }

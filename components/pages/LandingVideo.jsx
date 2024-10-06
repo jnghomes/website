@@ -1,12 +1,19 @@
-import React from 'react'
-import Heading from '../shared/Heading'
+import React from 'react';
+// import video from "../../video/myVideo.mp4"
 
 function LandingVideo() {
   return (
-    <div className='flex justify-center items-center h-screen w-full bg-primaryAccent'>
-        <Heading text="Video to be display here" color="black"></Heading>
+    <div className='flex justify-center items-center h-screen w-full bg-primaryccent'>
+      <video 
+        className="h-full w-full object-cover"
+        src="/myVideo.mp4" // Replace with the actual video path
+        autoPlay
+        muted
+        loop
+        playsInline
+      ></video>
     </div>
-  )
+  );
 }
 
-export default LandingVideo
+export default LandingVideo;

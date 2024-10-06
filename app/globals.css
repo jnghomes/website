@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #020202;
+  --background: white;
   --primaryAccent: #cdf400;
   --secondaryAccent: #7123e9;
 }
@@ -26,7 +26,7 @@ body {
   cursor: none;
 }
 .slick-dots li button:before {
-  color:var(--primaryAccent) !important;
+  color:black !important;
 }
 .slick-dots li.slick-active button:before {
   color:var(--primaryAccent) !important;
@@ -54,7 +54,7 @@ body::-webkit-scrollbar {
   position: absolute;
   height: 0.1rem;
   width: 100%;
-  background: var(--primaryAccent);
+  background: black;
   opacity: 1;
   left: 0;
   -webkit-transform: rotate(0deg);
