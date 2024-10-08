@@ -10,10 +10,8 @@ module.exports = {
       colors: {
         background: "var(--background)",
         primaryAccent: "var(--primaryAccent)",
-        secondaryAccent: "var(--secondaryAccent)",
-        highlight: "var(--highlight)",
-        text: "var(--text)",
-        textDark: "var(--textDark)",
+        primaryText:"var(--primaryText)",
+        secondaryText:"var(--secondaryText)"
       },
     },
   },

@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation"; // Use router to get the current path
 import { motion } from "framer-motion"; // Import motion from framer-motion
+import ThemeToggle from "./ThemeToggle";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,14 +56,16 @@ function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-50 bg-background text-black transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 w-full z-50 bg-background text-primaryText transition-transform duration-300 ease-in-out ${
           showNavbar ? "translate-y-0" : "-translate-y-full"
         }`}
       >
         <div className="w-full px-4 md:px-0 md:max-w-[80vw] mx-auto">
           <div className="flex justify-between items-center p-4">
             <div className="text-2xl font-bold">Brand</div>
+            <div className="flex gap-8">
 
+            <ThemeToggle></ThemeToggle>
             <div
               id="nav-icon3"
               className={isOpen ? "open" : ""}
@@ -72,6 +75,7 @@ function Navbar() {
               <span></span>
               <span></span>
               <span></span>
+            </div>
             </div>
           </div>
         </div>
@@ -86,7 +90,7 @@ function Navbar() {
         animate={{ x: isOpen ? 0 : "100%" }} // Slide in/out based on isOpen
         transition={{ duration: 0.3 }}
       >
-        <ul className="flex flex-col items-center justify-center h-full text-black space-y-8">
+        <ul className="flex flex-col items-center justify-center h-full text-primaryText space-y-8">
           {links?.map((item, index) => {
             const isActive = path === item.link; // Check if current route matches the link
             return (
@@ -101,7 +105,9 @@ function Navbar() {
                 <Link
                   href={item.link}
                   onClick={() => setIsOpen(false)}
-                  className={`inline-block ${isActive ? "text-black" : ""} transition-colors duration-300`} // Use inline-block for text width
+                  className={`inline-block ${
+                    isActive ? "text-primaryText" : ""
+                  } transition-colors duration-300`} // Use inline-block for text width
                 >
                   {item.name}
                 </Link>

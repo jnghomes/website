@@ -5,8 +5,17 @@
 :root {
   --background: white;
   --primaryAccent: #cdf400;
-  --secondaryAccent: #7123e9;
+  --primaryText: black;
+  --secondaryText:#F3F4F6;
+
 }
+[data-theme='dark'] {
+  --background: black;
+  --primaryAccent: #cdf400;
+  --primaryText: white;
+  --secondaryText:#0E1014;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -20,13 +29,14 @@ body {
   color: var(--primaryAccent);
   background: var(--background);
   cursor: none;
+  transition: all 0.5s;
 }
 
 .slick-dots{
   cursor: none;
 }
 .slick-dots li button:before {
-  color:black !important;
+  color:var(--primaryText) !important;
 }
 .slick-dots li.slick-active button:before {
   color:var(--primaryAccent) !important;
@@ -54,7 +64,7 @@ body::-webkit-scrollbar {
   position: absolute;
   height: 0.1rem;
   width: 100%;
-  background: black;
+  background: var(--primaryText);
   opacity: 1;
   left: 0;
   -webkit-transform: rotate(0deg);

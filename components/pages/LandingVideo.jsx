@@ -1,5 +1,4 @@
 import React from 'react';
-// import video from "../../video/myVideo.mp4"
 
 function LandingVideo() {
   return (

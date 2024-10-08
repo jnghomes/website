@@ -2,6 +2,8 @@ import "./globals.css";
 import { Open_Sans } from "next/font/google";
 import { LoadingProvider } from "@/utils/context/LoadingContext";
 import LayoutPage from "@/components/shared/LayoutPage";
+import { ThemeProvider } from "next-themes";
+import ThemeToggle from "@/components/shared/ThemeToggle";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -30,8 +32,10 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={openSans.className}>
-      <LoadingProvider>
-        <LayoutPage children={children}></LayoutPage>
+        <LoadingProvider>
+          <ThemeProvider attribute="data-theme" defaultTheme="dark">
+            <LayoutPage children={children}></LayoutPage>
+          </ThemeProvider>
         </LoadingProvider>
       </body>
     </html>
