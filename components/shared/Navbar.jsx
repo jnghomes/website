@@ -5,6 +5,8 @@ import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation"; // Use router to get the current path
 import { motion } from "framer-motion"; // Import motion from framer-motion
 import ThemeToggle from "./ThemeToggle";
+import logo from '../../public/logo.png'
+import Image from 'next/image'
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,8 +64,15 @@ function Navbar() {
       >
         <div className="w-full px-4 md:px-0 md:max-w-[80vw] mx-auto">
           <div className="flex justify-between items-center p-4">
-            <div className="text-2xl font-bold">Brand</div>
+            {/* <div className="text-2xl font-bold">Brand</div> */}
             <div className="flex gap-8">
+            <div className="text-2xl font-bold">
+            {/* <motion.img src={logo}>
+          
+          </motion.img> */}
+          <Image src={logo} width={100} height={100}/>
+
+            </div>
 
             <ThemeToggle></ThemeToggle>
             <div
