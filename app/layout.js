@@ -11,8 +11,8 @@ const openSans = Open_Sans({
 });
 
 export const metadata = {
-  title: "JNG Homes",
-  description: "JNG Homes",
+  title: "Task",
+  description: "Task given by Nilesh Bhai",
 };
 
 export default function RootLayout({ children }) {
