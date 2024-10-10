@@ -29,7 +29,7 @@ function Projects() {
       <Heading text="Our Projects"></Heading>
       <div className="flex flex-wrap gap-12 justify-cente">
         {welcomePageProjects.map((item) => {
-          return <Card key={item.sl} index={item.sl} title={item.title} content={item.content}></Card>;
+          return <Card key={item.sl} index={item.sl} title={item.title} content={item.content} projectId={item.sl}></Card>;
         })}
       </div>
     </div>

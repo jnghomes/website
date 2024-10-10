@@ -22,7 +22,7 @@ const hoverEffect = {
   scale: 1.05, // Scale up effect on hover
 };
 
-function Card({ index, title, content }) {
+function Card({ index, title, content,projectId }) {
   return (
     <motion.article
       className="flex flex-col gap-4 w-64"
