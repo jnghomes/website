@@ -17,6 +17,11 @@ const welcomePageProjects = [
     title: "Almo Residency",
     content: `This is a Turnkey construction project, we delivered with our best efforts and qualities. This project is situated in AIIMS Nagar Patrapada, Bhubaneswar. This is a 5-storey apartment with 20 units of 2 BHK and 3 BHK Flats. Total Built up area of this project is 28,000 sq.ft.`,
   },
+  {
+    sl: 4,
+    title: "Casa Palmera",
+    content: `This is a Turnkey construction project, we delivered with our best efforts and qualities. This project is situated in AIIMS Nagar Patrapada, Bhubaneswar. This is a 5-storey apartment with 20 units of 2 BHK and 3 BHK Flats. Total Built up area of this project is 28,000 sq.ft.`,
+  },
 ];
 function Projects() {
   return (
