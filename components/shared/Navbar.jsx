@@ -15,15 +15,13 @@ function Navbar() {
   const path = usePathname(); // Use router to get the current path
 
   const handleScroll = () => {
-    const currentScrollY = window.scrollY;
-
-    if (currentScrollY > lastScrollY && currentScrollY > 50) {
-      setShowNavbar(false);
-    } else {
-      setShowNavbar(true);
-    }
-
-    setLastScrollY(currentScrollY);
+    // const currentScrollY = window.scrollY;
+    // if (currentScrollY > lastScrollY && currentScrollY > 50) {
+    //   setShowNavbar(false);
+    // } else {
+    //   setShowNavbar(true);
+    // }
+    // setLastScrollY(currentScrollY);
   };
 
   useEffect(() => {
@@ -64,12 +62,15 @@ function Navbar() {
       >
         <div className="w-full px-4 md:px-0 md:max-w-[80vw] mx-auto">
           <div className="flex justify-between items-center p-4">
-            <div className="text-2xl font-bold">
-              {/* <motion.img src={logo}>
+            <Link href={`/`} className="relative inline-block group text-primaryAccent uppercase">
+              <div className="text-2xl font-bold">
+                {/* <motion.img src={logo}>
           
           </motion.img> */}
-              <Image src={logo} width={100} height={100} />
-            </div>
+
+                <Image src={logo} width={100} height={100} />
+              </div>
+            </Link>
             {/* <div className="text-2xl font-bold">Brand</div> */}
             <div className="flex gap-8">
               <ThemeToggle></ThemeToggle>
