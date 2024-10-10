@@ -6,6 +6,7 @@ import WelcomePage from "@/components/pages/WelcomePage";
 import { useLoading } from "@/utils/context/LoadingContext";
 import * as motion from "framer-motion/client";
 import Heading from "@/components/shared/Heading";
+import Testimonial from "@/components/shared/Testimonial";
 
 export default function Home() {
 
@@ -50,6 +51,7 @@ export default function Home() {
         </motion.p>
       </div>
         <SliderPage></SliderPage>
+        <Testimonial></Testimonial>
       </div>
     </>
   );

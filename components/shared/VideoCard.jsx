@@ -30,7 +30,7 @@ function VideoCard({ index, title, content }) {
       }
     >
       <div className="aspect-[16/9] w-[100%] lg:w-[45%] bg-secondaryText rounded-md">
-        <div className="flex justify-center items-center  w-full bg-primaryccent">
+        <div className="flex justify-center items-center w-full bg-primaryccent">
           <video
             className="h-full w-full object-cover"
             src="/paragraph_uniqueness.mov" // Replace with the actual video path
@@ -44,7 +44,7 @@ function VideoCard({ index, title, content }) {
 
       <div className="flex flex-col gap-2 w-[100%] lg:w-[45%]">
         <h4 className="scroll-m-20 text-2xl font-semibold tracking-tight text-primaryText ">{title}</h4>
-        <span className="w-64 h-[1px] bg-primaryAccent"></span>
+        <span className="w-64 h-[4px] bg-primaryAccent"></span>
         <p className="text-sm/relaxed text-gray-500">{content}</p>
       </div>
     </motion.article>
