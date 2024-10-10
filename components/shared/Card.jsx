@@ -43,7 +43,7 @@ function Card({ index, title, content,projectId }) {
         <h4 className="scroll-m-20 text-2xl font-semibold tracking-tight text-primaryText">{title}</h4>
 
         <p className="line-clamp-3 text-sm/relaxed text-gray-500">{content}</p>
-        <Link href="#" className="relative inline-block group text-primaryAccent uppercase">
+        <Link href={`projects/${projectId}`} className="relative inline-block group text-primaryAccent uppercase">
           Know More
           <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-text transition-all duration-300 ease-in-out group-hover:w-full"></span>
         </Link>
