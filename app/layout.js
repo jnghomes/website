@@ -11,8 +11,8 @@ const openSans = Open_Sans({
 });
 
 export const metadata = {
-  title: "Task",
-  description: "Task given by Nilesh Bhai",
+  title: "JNG Homes",
+  description: "JNG Homes",
 };
 
 export default function RootLayout({ children }) {
@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
         <link
           rel="stylesheet"
           type="text/css"
-          charset="UTF-8"
+          charSet="UTF-8"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
         />
         <link
