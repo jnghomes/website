@@ -8,7 +8,7 @@ function Projects() {
       <Heading text="Our Projects"></Heading>
       <div className="flex flex-wrap gap-12 justify-cente">
         {[1, 2, 3, 4, 5, 6].map((item) => {
-          return <Card key={item}></Card>;
+          return <Card projectId={item} key={item}></Card>;
         })}
       </div>
     </div>
