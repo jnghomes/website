@@ -201,6 +201,17 @@ body::-webkit-scrollbar {
   border: 1.5px solid rgba(255, 255, 255, 0.06);
 }
 
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  z-index: 99999;
+  background: var(--primaryAccent);
+  transform-origin: 0%;
+}
+
 @keyframes spinner-y0fdc1 {
   0% {
     transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);

@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Preloader from "./Preloader";
 import { usePathname } from "next/navigation";
+import PageProgress from "./PageProgress";
 
 function LayoutPage({ children }) {
   const { loading, setLoading } = useLoading();
@@ -30,6 +31,7 @@ function LayoutPage({ children }) {
       ) : (
         <>
           <CustomCursor></CustomCursor>
+          <PageProgress></PageProgress>
           <Navbar></Navbar>
           <div className="min-h-screen">{children}</div>
           <Footer></Footer>

@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={openSans.className}>
         <LoadingProvider>
-          <ThemeProvider attribute="data-theme" defaultTheme="dark">
+          <ThemeProvider attribute="data-theme">
             <LayoutPage children={children}></LayoutPage>
           </ThemeProvider>
         </LoadingProvider>
