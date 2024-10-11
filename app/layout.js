@@ -19,6 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+      <link rel="icon" href="/logo-2.png" />
         <link
           rel="stylesheet"
           type="text/css"
@@ -33,7 +34,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={openSans.className}>
         <LoadingProvider>
-          <ThemeProvider attribute="data-theme" defaultTheme="dark">
+          <ThemeProvider attribute="data-theme">
             <LayoutPage children={children}></LayoutPage>
           </ThemeProvider>
         </LoadingProvider>

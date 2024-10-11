@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import * as motion from "framer-motion/client";
 import Image from "next/image";
+
 const cardVariants = {
   hidden: {
     opacity: 0,
@@ -33,19 +34,30 @@ function Card({ index, title, content, url, mainImageURL }) {
     >
       <Link href={`/projects/${url}`}>
         <motion.div
-          className="aspect-[4/5] w-[100%] bg-secondaryText rounded-md"
+          className="aspect-[4/5] w-[100%] bg-secondaryText rounded-md relative" // Added 'relative' to ensure correct positioning
           whileHover={hoverEffect} // Apply scale effect to this div on hover
           transition={{ duration: 0.3 }} // Transition effect for the scale
         >
-          <Image src={mainImageURL} layout="fill" objectFit="cover" alt={title} />
+          <Image
+            src={mainImageURL}
+            layout="fill"
+            objectFit="cover"
+            alt={title}
+            className="rounded-md" // Optional: Add this to ensure the image fits the rounded corners of the container
+          />
         </motion.div>
       </Link>
 
       <div className="flex flex-col gap-2">
-        <h4 className="scroll-m-20 text-2xl font-semibold tracking-tight text-primaryText">{title}</h4>
+        <h4 className="scroll-m-20 text-2xl font-semibold tracking-tight text-primaryText">
+          {title}
+        </h4>
 
         <p className="line-clamp-3 text-sm/relaxed text-gray-500">{content}</p>
-        <Link href={`projects/${url}`} className="relative inline-block group text-primaryAccent uppercase">
+        <Link
+          href={`projects/${url}`}
+          className="relative inline-block group text-primaryAccent uppercase"
+        >
           Know More
           <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-text transition-all duration-300 ease-in-out group-hover:w-full"></span>
         </Link>

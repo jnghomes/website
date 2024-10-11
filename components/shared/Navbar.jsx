@@ -15,26 +15,26 @@ function Navbar() {
   const path = usePathname(); // Use router to get the current path
 
   const handleScroll = () => {
-    // const currentScrollY = window.scrollY;
-    // if (currentScrollY > lastScrollY && currentScrollY > 50) {
-    //   setShowNavbar(false);
-    // } else {
-    //   setShowNavbar(true);
-    // }
-    // setLastScrollY(currentScrollY);
+    const currentScrollY = window.scrollY;
+    if (currentScrollY > 50 && currentScrollY > lastScrollY) {
+      setShowNavbar(false); // Hide navbar when scrolling down
+    } else {
+      setShowNavbar(true); // Show navbar when scrolling up
+    }
+    setLastScrollY(currentScrollY); // Update lastScrollY with the current scroll position
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [lastScrollY]);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [lastScrollY]);
 
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "auto";
-  }, [isOpen]);
+  // useEffect(() => {
+  //   document.body.style.overflow = isOpen ? "hidden" : "auto";
+  // }, [isOpen]);
 
   // Animation variants for tab items
   const tabVariants = {
@@ -56,7 +56,7 @@ function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-50 bg-background text-primaryText transition-transform duration-300 ease-in-out ${
+        className={`glass fixed top-0 left-0 w-full z-50 bg-background text-primaryText transition-transform duration-300 ease-in-out ${
           showNavbar ? "translate-y-0" : "-translate-y-full"
         }`}
       >
@@ -64,16 +64,11 @@ function Navbar() {
           <div className="flex justify-between items-center p-4">
             <Link href={`/`} className="relative inline-block group text-primaryAccent uppercase">
               <div className="text-2xl font-bold">
-                {/* <motion.img src={logo}>
-          
-          </motion.img> */}
-
-                <Image src={logo} width={100} height={100} />
+                <Image src={logo} width={72} height={72} alt="Logo" />
               </div>
             </Link>
-            {/* <div className="text-2xl font-bold">Brand</div> */}
             <div className="flex gap-8">
-              <ThemeToggle></ThemeToggle>
+              <ThemeToggle />
               <div id="nav-icon3" className={isOpen ? "open" : ""} onClick={() => setIsOpen((prev) => !prev)}>
                 <span></span>
                 <span></span>
@@ -109,13 +104,12 @@ function Navbar() {
                 <Link
                   href={item.link}
                   onClick={() => setIsOpen(false)}
-                  className={`inline-block ${isActive ? "text-primaryText" : ""} transition-colors duration-300`} // Use inline-block for text width
+                  className={`inline-block ${isActive ? "text-primaryText" : ""} transition-colors duration-300`}
                 >
                   {item.name}
                 </Link>
-                {/* Underline that only spans the text width */}
                 <span
-                  className={`absolute bottom-0 left-0 h-[2px] bg-primaryAccent transition-all duration-300 ease-in-out ${
+                  className={`absolute bottom-0 left-0 h-[4px] bg-primaryAccent transition-all duration-300 ease-in-out ${
                     isActive ? "w-full" : "w-0 group-hover:w-full"
                   }`}
                 ></span>
