@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from 'react';
-import KeenSlider from 'keen-slider';
-import 'keen-slider/keen-slider.min.css';
-import { FaAngleLeft,FaAngleRight } from "react-icons/fa";
-import Heading from './Heading';
+import React, { useEffect, useRef } from "react";
+import KeenSlider from "keen-slider";
+import "keen-slider/keen-slider.min.css";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import Heading from "./Heading";
 
 const Testimonial = () => {
   const sliderRef = useRef(null);
@@ -14,14 +14,14 @@ const Testimonial = () => {
       const keenSliderInstance = new KeenSlider(sliderRef.current, {
         loop: true,
         slides: {
-          origin: 'center',
+          origin: "center",
           perView: 1.25,
           spacing: 16,
         },
         breakpoints: {
-          '(min-width: 1024px)': {
+          "(min-width: 1024px)": {
             slides: {
-              origin: 'auto',
+              origin: "auto",
               perView: 2.5,
               spacing: 32,
             },
@@ -30,8 +30,8 @@ const Testimonial = () => {
       });
 
       // Set up event listeners for navigation buttons
-      prevRef.current.addEventListener('click', () => keenSliderInstance.prev());
-      nextRef.current.addEventListener('click', () => keenSliderInstance.next());
+      prevRef.current.addEventListener("click", () => keenSliderInstance.prev());
+      nextRef.current.addEventListener("click", () => keenSliderInstance.next());
 
       return () => {
         keenSliderInstance.destroy();
@@ -43,7 +43,7 @@ const Testimonial = () => {
     <section className="bg-gra">
       <div className="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
         <div className="max-w-7xl items-end justify-between sm:flex sm:pe-6 lg:pe-8">
-          <Heading text="Read trusted reviews from our customers"></Heading>
+          <Heading text="Read reviews from our customers"></Heading>
 
           <div className="mt-8 flex gap-4 lg:mt-0">
             <button
@@ -51,7 +51,7 @@ const Testimonial = () => {
               ref={prevRef}
               className="rounded-full border border-primaryText p-3 text-primaryText transition hover:bg-primaryText hover:text-secondaryText"
             >
-           <FaAngleLeft></FaAngleLeft>
+              <FaAngleLeft></FaAngleLeft>
             </button>
 
             <button
@@ -69,9 +69,7 @@ const Testimonial = () => {
             <div className="keen-slider__slide">
               <blockquote className="flex h-full flex-col justify-between bg-secondaryText p-6 shadow-sm sm:p-8 lg:p-12 rounded-lg">
                 <div>
-                  <div className="flex gap-0.5 text-primaryAccent">
-                    {/* Add your star icons here */}
-                  </div>
+                  <div className="flex gap-0.5 text-primaryAccent">{/* Add your star icons here */}</div>
                   <div className="mt-4">
                     <p className="text-2xl font-bold text-primasecondaryText sm:text-3xl">Stayin' Alive</p>
                     <p className="mt-4 leading-relaxed text-primaryText">
@@ -79,17 +77,13 @@ const Testimonial = () => {
                     </p>
                   </div>
                 </div>
-                <footer className="mt-4 text-sm font-medium text-gray-500 sm:mt-6">
-                  &mdash; Michael Scott
-                </footer>
+                <footer className="mt-4 text-sm font-medium text-gray-500 sm:mt-6">&mdash; Michael Scott</footer>
               </blockquote>
             </div>
             <div className="keen-slider__slide">
               <blockquote className="flex h-full flex-col justify-between bg-secondaryText p-6 shadow-sm sm:p-8 lg:p-12 rounded-lg">
                 <div>
-                  <div className="flex gap-0.5 text-primaryAccent">
-                    {/* Add your star icons here */}
-                  </div>
+                  <div className="flex gap-0.5 text-primaryAccent">{/* Add your star icons here */}</div>
                   <div className="mt-4">
                     <p className="text-2xl font-bold text-primaryAccent sm:text-3xl">Stayin' Alive</p>
                     <p className="mt-4 leading-relaxed text-primaryText">
@@ -97,12 +91,9 @@ const Testimonial = () => {
                     </p>
                   </div>
                 </div>
-                <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
-                  &mdash; Michael Scott
-                </footer>
+                <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">&mdash; Michael Scott</footer>
               </blockquote>
             </div>
-            
 
             {/* Repeat for more slides */}
           </div>
