@@ -1,7 +1,7 @@
 import React from "react";
 import Heading from "../shared/Heading";
 import Card from "../shared/Card";
-import { welcomePageProjects } from "../../app/constants";
+import { welcomePageProjects } from "@/utils/constants";
 
 function Projects() {
   return (

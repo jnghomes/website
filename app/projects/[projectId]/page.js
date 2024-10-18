@@ -4,8 +4,8 @@ import SliderPage from "@/components/pages/SliderPage";
 import SubHeading from "@/components/shared/SubHeading";
 import React from "react";
 import Image from "next/image";
-import { welcomePageProjects } from "../../constants";
 import { usePathname } from "next/navigation";
+import { welcomePageProjects } from "@/utils/constants";
 
 function page() {
   const pathname = usePathname();
@@ -20,7 +20,7 @@ function page() {
   return (
     <>
       <div className="w-screen h-screen bg-primaryAccent">
-        <Image src={currentProject.mainImageURL} layout="fill" objectFit="cover" alt={currentProject.title} />
+        <Image src={currentProject.mainImageURL} layout="fill" style={{ objectFit: 'cover' }} alt={currentProject.title} />
       </div>
       <div className="w-full px-8 md:px-0 md:max-w-[80vw] mx-auto">
         <div className="flex flex-col lg:flex-row gap-4 lg:gap-16 mt-4">

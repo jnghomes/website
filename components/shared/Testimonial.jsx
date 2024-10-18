@@ -1,102 +1,122 @@
-import React, { useEffect, useRef } from "react";
-import KeenSlider from "keen-slider";
-import "keen-slider/keen-slider.min.css";
+import React from 'react';
+import Slider from 'react-slick';
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import Heading from "./Heading";
+import Heading from './Heading';
+import Image from 'next/image';
 
 const Testimonial = () => {
-  const sliderRef = useRef(null);
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
+  const sliderRef = React.useRef(null);
 
-  useEffect(() => {
-    if (sliderRef.current) {
-      const keenSliderInstance = new KeenSlider(sliderRef.current, {
-        loop: true,
-        slides: {
-          origin: "center",
-          perView: 1.25,
-          spacing: 16,
+  // Custom Previous Arrow
+  const PrevArrow = ({ onClick }) => (
+    <button
+      aria-label="Previous slide"
+      onClick={onClick}
+      className="rounded-full border border-primaryText p-3 text-primaryText hover:bg-primaryText hover:text-secondaryText"
+    >
+      <FaAngleLeft />
+    </button>
+  );
+
+  // Custom Next Arrow
+  const NextArrow = ({ onClick }) => (
+    <button
+      aria-label="Next slide"
+      onClick={onClick}
+      className="rounded-full border border-primaryText p-3 text-primaryText hover:bg-primaryText hover:text-secondaryText"
+    >
+      <FaAngleRight />
+    </button>
+  );
+
+  // Slider settings
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: '0',
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          centerMode: false,
         },
-        breakpoints: {
-          "(min-width: 1024px)": {
-            slides: {
-              origin: "auto",
-              perView: 2.5,
-              spacing: 32,
-            },
-          },
-        },
-      });
-
-      // Set up event listeners for navigation buttons
-      prevRef.current.addEventListener("click", () => keenSliderInstance.prev());
-      nextRef.current.addEventListener("click", () => keenSliderInstance.next());
-
-      return () => {
-        keenSliderInstance.destroy();
-      };
-    }
-  }, []);
+      },
+    ],
+  };
 
   return (
-    <section className="bg-gra">
+    <section className="">
       <div className="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
-        <div className="max-w-7xl items-end justify-between sm:flex sm:pe-6 lg:pe-8">
-          <Heading text="Read reviews from our customers"></Heading>
+        <div className="max-w-7xl items-center justify-between sm:flex sm:pe-6 lg:pe-8">
+          <Heading text="Read trusted reviews from our customers" />
 
-          <div className="mt-8 flex gap-4 lg:mt-0">
-            <button
-              aria-label="Previous slide"
-              ref={prevRef}
-              className="rounded-full border border-primaryText p-3 text-primaryText transition hover:bg-primaryText hover:text-secondaryText"
-            >
-              <FaAngleLeft></FaAngleLeft>
-            </button>
-
-            <button
-              aria-label="Next slide"
-              ref={nextRef}
-              className="rounded-full border border-primaryText p-3 text-primaryText transition hover:bg-primaryText hover:text-secondaryText"
-            >
-              <FaAngleRight></FaAngleRight>
-            </button>
+          <div className="flex gap-4 lg:mt-0">
+            {/* Navigation buttons positioned side by side */}
+            <PrevArrow onClick={() => sliderRef.current.slickPrev()} />
+            <NextArrow onClick={() => sliderRef.current.slickNext()} />
           </div>
         </div>
 
         <div className="-mx-6 mt-8 lg:col-span-2 lg:mx-0">
-          <div ref={sliderRef} className="keen-slider">
-            <div className="keen-slider__slide">
+          <Slider ref={sliderRef} {...settings}>
+            <div className="px-4">
               <blockquote className="flex h-full flex-col justify-between bg-secondaryText p-6 shadow-sm sm:p-8 lg:p-12 rounded-lg">
                 <div>
-                  <div className="flex gap-0.5 text-primaryAccent">{/* Add your star icons here */}</div>
+                  <div className="flex gap-0.5 text-primaryAccent">
+                    {/* Add your star icons here */}
+                  </div>
                   <div className="mt-4">
-                    <p className="text-2xl font-bold text-primasecondaryText sm:text-3xl">Stayin' Alive</p>
+                    <Image
+                      src="/images/logo.png"
+                      alt="avatar.jpg"
+                      width={50}
+                      height={50}
+                      className="inline rounded-full"
+                    />
                     <p className="mt-4 leading-relaxed text-primaryText">
                       No, Rose, they are not breathing. And they have no arms or legs…
                     </p>
                   </div>
                 </div>
-                <footer className="mt-4 text-sm font-medium text-gray-500 sm:mt-6">&mdash; Michael Scott</footer>
+                <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+                  &mdash; Michael Scott
+                </footer>
               </blockquote>
             </div>
-            <div className="keen-slider__slide">
+            <div className="px-4">
               <blockquote className="flex h-full flex-col justify-between bg-secondaryText p-6 shadow-sm sm:p-8 lg:p-12 rounded-lg">
                 <div>
-                  <div className="flex gap-0.5 text-primaryAccent">{/* Add your star icons here */}</div>
+                  <div className="flex gap-0.5 text-primaryAccent">
+                    {/* Add your star icons here */}
+                  </div>
                   <div className="mt-4">
-                    <p className="text-2xl font-bold text-primaryAccent sm:text-3xl">Stayin' Alive</p>
+                    <Image
+                      src="/images/logo.png"
+                      alt="avatar.jpg"
+                      width={50}
+                      height={50}
+                      className="inline rounded-full"
+                    />
                     <p className="mt-4 leading-relaxed text-primaryText">
                       No, Rose, they are not breathing. And they have no arms or legs…
                     </p>
                   </div>
                 </div>
-                <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">&mdash; Michael Scott</footer>
+                <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+                  &mdash; Michael Scott
+                </footer>
               </blockquote>
             </div>
-
             {/* Repeat for more slides */}
-          </div>
+          </Slider>
         </div>
       </div>
     </section>
