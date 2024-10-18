@@ -2,6 +2,8 @@
 import React from "react";
 import Slider from "react-slick";
 import * as motion from "framer-motion/client";
+import { sliderImages } from "../../utils/constants";
+import Image from "next/image";
 
 function SliderPage() {
   const cardVariants = {
@@ -28,7 +30,7 @@ function SliderPage() {
       clipPath: "circle(100% at 50% 50%)", // Final state (fully visible)
       transition: {
         duration: 1,
-        delay:0.5,
+        delay: 0.5,
         ease: "easeInOut",
       },
     },
@@ -49,7 +51,7 @@ function SliderPage() {
     <div className="flex flex-col gap-8 py-16">
       <div className="slider-container">
         <Slider {...settings}>
-          {[1, 2, 3, 4, 5].map((item) => (
+          {sliderImages.map((item) => (
             <motion.div
               key={item}
               className="w-full aspect-video bg-primaryAccent rounded-lg flex items-center justify-center"
@@ -58,7 +60,7 @@ function SliderPage() {
               whileInView="visible"
               viewport={{ once: true }} // Animation plays only once
             >
-              <h1 className="text-black">{item}</h1>
+              <Image src={item} layout="fill" style={{ objectFit: "contain" }} alt={item} />
             </motion.div>
           ))}
         </Slider>

@@ -1,7 +1,7 @@
 import React from "react";
 import * as motion from "framer-motion/client";
 
-function VideoCard({ index, title, content,videoURL,videoPoster }) {
+function VideoCard({ index, title, content, videoURL, videoPoster }) {
   const cardVariants = {
     hidden: {
       opacity: 0,
@@ -41,30 +41,16 @@ function VideoCard({ index, title, content,videoURL,videoPoster }) {
             poster={videoPoster}
             loading="lazy"
           >
-            <source
-              src={`${videoURL}_high.mp4`}
-              type="video/mp4"
-              media="(min-width: 1200px)"
-            />
-            <source
-              src={`${videoURL}_normal.mp4`}
-              type="video/mp4"
-              media="(min-width: 421px)"
-            />
-            <source
-              src={`${videoURL}_low.mp4`}
-              type="video/mp4"
-              media="(max-width: 420px)"
-            />
+            <source src={videoURL} type="video/mp4" media="(min-width: 1200px)" />
+            <source src={videoURL} type="video/mp4" media="(min-width: 421px)" />
+            <source src={videoURL} type="video/mp4" media="(max-width: 420px)" />
             Your browser does not support the video tag.
           </video>
         </div>
       </div>
 
       <div className="flex flex-col gap-2 w-[100%] lg:w-[45%]">
-        <h4 className="scroll-m-20 text-2xl font-semibold tracking-tight text-primaryText ">
-          {title}
-        </h4>
+        <h4 className="scroll-m-20 text-2xl font-semibold tracking-tight text-primaryText ">{title}</h4>
         <span className="w-64 h-[4px] bg-primaryAccent"></span>
         <p className="text-sm/relaxed text-gray-500">{content}</p>
       </div>

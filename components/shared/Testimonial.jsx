@@ -1,8 +1,9 @@
-import React from 'react';
-import Slider from 'react-slick';
+import React from "react";
+import Slider from "react-slick";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import Heading from './Heading';
-import Image from 'next/image';
+import Heading from "./Heading";
+import Image from "next/image";
+import { testimonials } from "@/utils/constants";
 
 const Testimonial = () => {
   const sliderRef = React.useRef(null);
@@ -34,12 +35,12 @@ const Testimonial = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 2,
+    slidesToShow: 1,
     slidesToScroll: 1,
     centerMode: true,
-    centerPadding: '0',
+    centerPadding: "0",
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 2000,
     arrows: false,
     responsive: [
       {
@@ -67,54 +68,36 @@ const Testimonial = () => {
 
         <div className="-mx-6 mt-8 lg:col-span-2 lg:mx-0">
           <Slider ref={sliderRef} {...settings}>
-            <div className="px-4">
-              <blockquote className="flex h-full flex-col justify-between bg-secondaryText p-6 shadow-sm sm:p-8 lg:p-12 rounded-lg">
-                <div>
-                  <div className="flex gap-0.5 text-primaryAccent">
-                    {/* Add your star icons here */}
+            {testimonials.map((item, index) => (
+              <div className="px-4">
+                <blockquote className="flex h-full flex-col justify-between bg-secondaryText p-6 shadow-sm sm:p-8 lg:p-12 rounded-lg">
+                  <div>
+                    <div className="flex gap-0.5 text-primaryAccent">{/* Add your star icons here */}</div>
+                    <div className="mt-4">
+                      <Image src={"/images/logo.png"} alt="avatar.jpg" width={50} height={50} className="inline rounded-full" />
+                      <p className="mt-4 leading-relaxed text-primaryText">{item.message}</p>
+                    </div>
                   </div>
-                  <div className="mt-4">
-                    <Image
-                      src="/images/logo.png"
-                      alt="avatar.jpg"
-                      width={50}
-                      height={50}
-                      className="inline rounded-full"
-                    />
-                    <p className="mt-4 leading-relaxed text-primaryText">
-                      No, Rose, they are not breathing. And they have no arms or legs…
-                    </p>
-                  </div>
-                </div>
-                <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
-                  &mdash; Michael Scott
-                </footer>
-              </blockquote>
-            </div>
-            <div className="px-4">
-              <blockquote className="flex h-full flex-col justify-between bg-secondaryText p-6 shadow-sm sm:p-8 lg:p-12 rounded-lg">
-                <div>
-                  <div className="flex gap-0.5 text-primaryAccent">
-                    {/* Add your star icons here */}
-                  </div>
-                  <div className="mt-4">
-                    <Image
-                      src="/images/logo.png"
-                      alt="avatar.jpg"
-                      width={50}
-                      height={50}
-                      className="inline rounded-full"
-                    />
-                    <p className="mt-4 leading-relaxed text-primaryText">
-                      No, Rose, they are not breathing. And they have no arms or legs…
-                    </p>
-                  </div>
-                </div>
-                <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
-                  &mdash; Michael Scott
-                </footer>
-              </blockquote>
-            </div>
+                  <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">&mdash;{item.name}</footer>
+                </blockquote>
+              </div>
+              // {!(index === testimonials.length - 1) && (
+              //   <div className="px-4">
+              //     <blockquote className="flex h-full flex-col justify-between bg-secondaryText p-6 shadow-sm sm:p-8 lg:p-12 rounded-lg">
+              //       <div>
+              //         <div className="flex gap-0.5 text-primaryAccent">{/* Add your star icons here */}</div>
+              //         <div className="mt-4">
+              //           <Image src="/images/logo.png" alt="avatar.jpg" width={50} height={50} className="inline rounded-full" />
+              //           <p className="mt-4 leading-relaxed text-primaryText">{testimonials[index + 1].message}</p>
+              //         </div>
+              //       </div>
+              //       <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+              //         &mdash; {testimonials[index + 1].name}
+              //       </footer>
+              //     </blockquote>
+              //   </div>
+              // )}
+            ))}
             {/* Repeat for more slides */}
           </Slider>
         </div>
