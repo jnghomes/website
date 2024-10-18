@@ -4,13 +4,13 @@
 
 :root {
   --background: white;
-  --primaryAccent: #cdf400;
+  --primaryAccent: #62ab45;
   --primaryText: black;
   --secondaryText: #f3f4f6;
 }
 [data-theme="dark"] {
   --background: black;
-  --primaryAccent: #cdf400;
+  --primaryAccent: #62ab45;
   --primaryText: white;
   --secondaryText: #0e1014;
 }

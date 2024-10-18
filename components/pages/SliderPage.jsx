@@ -54,7 +54,7 @@ function SliderPage() {
           {sliderImages.map((item) => (
             <motion.div
               key={item}
-              className="w-full aspect-video bg-primaryAccent rounded-lg flex items-center justify-center"
+              className="w-full aspect-video bg-secondaryText rounded-lg flex items-center justify-center"
               variants={imageVariants}
               initial="hidden"
               whileInView="visible"
