@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "port=2431 next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -12,12 +12,14 @@
     "framer-motion": "^11.11.0",
     "next": "14.2.13",
     "next-themes": "^0.3.0",
+    "nodemailer": "^6.9.15",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.3.0",
     "react-slick": "^0.30.2"
   },
   "devDependencies": {
+    "@types/nodemailer": "^6.4.16",
     "postcss": "^8",
     "tailwindcss": "^3.4.1"
   }
