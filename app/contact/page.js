@@ -9,9 +9,11 @@ const transporter = nodemailer.createTransport({
   secure: true,
   auth: {
     user: "info@jnghomes.in",
-    pass: "zngd tccn oaws grfn",
+    pass: process.env.GMAIL_PASSWORD,
   },
 });
+
+console.log(process.env.GMAIL_PASSWORD);
 
 const mailOptions = {
   from: "info@jnghomes.in",
