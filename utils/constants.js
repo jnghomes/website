@@ -12,14 +12,16 @@ export const links = [
     link: "/contact",
   },
   {
-    name: "Services",
-    link: "/services",
-  },
-  {
     name: "Projects",
     link: "/projects",
   },
+  {
+    name: "Services",
+    link: "/services",
+  },
 ];
+
+const bookingStatus = { open: "Open", soldOut: "Sold Out", handedOver: "Handed Over" };
 
 export const welcomePageProjects = [
   {
@@ -33,7 +35,7 @@ export const welcomePageProjects = [
     type: "2 BHK",
     units: "8",
     area: "9000 sq. ft.",
-    bookingStatus: "1 unit left",
+    bookingStatus: bookingStatus.open,
     content: `This is a Turnkey construction project, we delivered with our best efforts and qualities. This project is situated in AIIMS Nagar Patrapada, Bhubaneswar. This is a 5-storey apartment with 20 units of 2 BHK and 3 BHK Flats. Total Built up area of this project is 28,000 sq.ft.`,
   },
   {
@@ -47,7 +49,7 @@ export const welcomePageProjects = [
     type: "3BHK",
     units: "",
     area: "",
-    bookingStatus: "Sold Out",
+    bookingStatus: bookingStatus.soldOut,
     content: `Welcome to a place where a plush lifestyle awaits you to embrace you love and peace. A place where you will enjoy every moment with glory. GP Nalini Grandeur is a heavenly tale of 4 storeyed apartment situated near to Biju pattanaik International Airport, Bhubaneswar. Designed for ample light and ventilation.`,
   },
   {
@@ -61,7 +63,7 @@ export const welcomePageProjects = [
     type: "3BHK",
     units: "",
     area: "",
-    bookingStatus: "Sold Out",
+    bookingStatus: bookingStatus.soldOut,
     content: `A landmark for luxury lifestyle, where we delivered specious 3 BHK Vastu compliant flats. This is a 3-storey apartment established near to KIIT Square. The best part of this project is, we just completed this project in 10 months only.`,
   },
   {
@@ -75,7 +77,7 @@ export const welcomePageProjects = [
     type: "3BHK & 2BHK",
     units: "",
     area: "",
-    bookingStatus: "Handed Over",
+    bookingStatus: bookingStatus.handedOver,
     content: `This is a Turnkey construction project, we delivered with our best efforts and qualities. This project is situated in AIIMS Nagar Patrapada, Bhubaneswar. This is a 5-storey apartment with 20 units of 2 BHK and 3 BHK Flats. Total Built up area of this project is 28,000 sq.ft.`,
   },
 ];
