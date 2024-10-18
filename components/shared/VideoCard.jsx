@@ -1,7 +1,7 @@
 import React from "react";
 import * as motion from "framer-motion/client";
 
-function VideoCard({ index, title, content }) {
+function VideoCard({ index, title, content,videoURL,videoPoster }) {
   const cardVariants = {
     hidden: {
       opacity: 0,
@@ -33,17 +33,38 @@ function VideoCard({ index, title, content }) {
         <div className="flex justify-center items-center w-full bg-primaryccent">
           <video
             className="h-full w-full object-cover"
-            src="/paragraph_uniqueness.mov" // Replace with the actual video path
             autoPlay
             muted
             loop
             playsInline
-          ></video>
+            preload="none"
+            poster={videoPoster}
+            loading="lazy"
+          >
+            <source
+              src={`${videoURL}_high.mp4`}
+              type="video/mp4"
+              media="(min-width: 1200px)"
+            />
+            <source
+              src={`${videoURL}_normal.mp4`}
+              type="video/mp4"
+              media="(min-width: 421px)"
+            />
+            <source
+              src={`${videoURL}_low.mp4`}
+              type="video/mp4"
+              media="(max-width: 420px)"
+            />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
 
       <div className="flex flex-col gap-2 w-[100%] lg:w-[45%]">
-        <h4 className="scroll-m-20 text-2xl font-semibold tracking-tight text-primaryText ">{title}</h4>
+        <h4 className="scroll-m-20 text-2xl font-semibold tracking-tight text-primaryText ">
+          {title}
+        </h4>
         <span className="w-64 h-[4px] bg-primaryAccent"></span>
         <p className="text-sm/relaxed text-gray-500">{content}</p>
       </div>

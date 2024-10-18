@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Heading from "../shared/Heading";
 import Slider from "react-slick";
 import * as motion from "framer-motion/client";
 

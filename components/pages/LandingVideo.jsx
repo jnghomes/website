@@ -5,12 +5,31 @@ function LandingVideo() {
     <div className="flex justify-center items-center h-screen w-full bg-primaryccent">
       <video
         className="h-full w-full object-cover"
-        src="/paragraph_uniqueness.mov" // Replace with the actual video path
         autoPlay
         muted
         loop
         playsInline
-      ></video>
+        preload="none"
+        poster="/images/video-poster.jpg"
+        loading="lazy"
+      >
+        <source
+          src="/videos/video_high.mp4"
+          type="video/mp4"
+          media="(min-width: 768)"
+        />
+        <source
+          src="/videos/video_normal.mp4"
+          type="video/mp4"
+          media="(min-width: 421px)"
+        />
+        <source
+          src="/videos/video_low.mp4"
+          type="video/mp4"
+          media="(max-width: 420px)"
+        />
+        Your browser does not support the video tag.
+      </video>
     </div>
   );
 }

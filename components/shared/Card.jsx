@@ -30,20 +30,21 @@ function Card({ index, title, content, url, mainImageURL }) {
       variants={cardVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }} // Animation plays only once
+      viewport={{ once: true }}
     >
       <Link href={`/projects/${url}`}>
         <motion.div
-          className="aspect-[4/5] w-[100%] bg-secondaryText rounded-md relative" // Added 'relative' to ensure correct positioning
-          whileHover={hoverEffect} // Apply scale effect to this div on hover
-          transition={{ duration: 0.3 }} // Transition effect for the scale
+          className="aspect-[4/5] w-[100%] bg-secondaryText rounded-md relative"
+          whileHover={hoverEffect}
+          transition={{ duration: 0.3 }}
         >
           <Image
             src={mainImageURL}
             layout="fill"
-            objectFit="cover"
+            style={{ objectFit: 'cover' }}
             alt={title}
-            className="rounded-md" // Optional: Add this to ensure the image fits the rounded corners of the container
+            className="rounded-md"
+            // quality={5}
           />
         </motion.div>
       </Link>

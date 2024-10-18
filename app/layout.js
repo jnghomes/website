@@ -3,7 +3,6 @@ import { Open_Sans } from "next/font/google";
 import { LoadingProvider } from "@/utils/context/LoadingContext";
 import LayoutPage from "@/components/shared/LayoutPage";
 import { ThemeProvider } from "next-themes";
-import ThemeToggle from "@/components/shared/ThemeToggle";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -19,7 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-      <link rel="icon" href="/logo-2.png" />
+      <link rel="icon" href="/images/logo-2.png" />
         <link
           rel="stylesheet"
           type="text/css"

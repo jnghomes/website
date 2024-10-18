@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation"; // Use router to get the current path
 import { motion } from "framer-motion"; // Import motion from framer-motion
 import ThemeToggle from "./ThemeToggle";
-import logo from "../../public/logo.png";
+import logo from "../../public/images/logo.png";
 import Image from "next/image";
 
 function Navbar() {
