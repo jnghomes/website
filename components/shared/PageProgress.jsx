@@ -15,7 +15,7 @@ export default function PageProgress() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-2 bg-primaryAccent origin-left z-[9999]"
+      className="fixed top-0 left-0 right-0 h-1 bg-primaryAccent origin-left z-[9999]"
       style={{ scaleX: scrollYProgress }} // Progress bar based on scroll
     />
   );

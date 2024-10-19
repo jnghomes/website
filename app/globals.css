@@ -24,6 +24,10 @@ html {
   font-size: 62.5%;
 }
 
+a,button{
+  cursor: none;
+}
+
 body {
   color: var(--primaryAccent);
   background: var(--background);
@@ -55,7 +59,6 @@ body::-webkit-scrollbar {
   -moz-transition: 0.5s ease-in-out;
   -o-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
-  cursor: pointer;
 }
 
 #nav-icon3 span {
@@ -196,8 +199,8 @@ body::-webkit-scrollbar {
   -webkit-backdrop-filter: blur(0.4rem);
   backdrop-filter: blur(0.4rem);
   font-size: 1.6rem;
-  -webkit-box-shadow: 0 25px 23px rgba(0, 0, 0, 0.15);
-  box-shadow: 0 25px 23px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 25px 23px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 25px 23px rgba(0, 0, 0, 0.05);
   border: 1.5px solid rgba(255, 255, 255, 0.06);
 }
 

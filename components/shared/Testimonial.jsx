@@ -35,7 +35,7 @@ const Testimonial = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 2,
     slidesToScroll: 1,
     centerMode: true,
     centerPadding: "0",

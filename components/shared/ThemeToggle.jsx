@@ -22,7 +22,7 @@ const ThemeToggle = () => {
 
   return (
     <div onClick={() => setTheme(theme === "light" ? "dark" : "light")} className="toggle-theme">
-      {theme === "light" ? <MdDarkMode className="text-3xl"></MdDarkMode> : <MdLightMode className="text-3xl"></MdLightMode>}
+      {theme === "light" ? <MdDarkMode className="text-3xl hover-target"></MdDarkMode> : <MdLightMode className="text-3xl hover-target"></MdLightMode>}
     </div>
   );
 };

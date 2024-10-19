@@ -1,26 +1,12 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import * as motion from "framer-motion/client";
-import { sliderImages } from "../../utils/constants";
 import Image from "next/image";
 
-function SliderPage() {
-  const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20, // Slide up effect
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        delay: 0.5,
-        ease: [0.2, 0.6, 0.4, 1],
-      },
-    },
-  };
+function SliderPage({sliderImages}) {
+  const [hasAnimated, setHasAnimated] = useState(false); // State to track animation
+  const sliderRef = useRef(null); // Create a ref for the slider container
 
   const imageVariants = {
     hidden: {
@@ -30,7 +16,6 @@ function SliderPage() {
       clipPath: "circle(100% at 50% 50%)", // Final state (fully visible)
       transition: {
         duration: 1,
-        delay: 0.5,
         ease: "easeInOut",
       },
     },
@@ -47,21 +32,44 @@ function SliderPage() {
     arrows: false,
   };
 
+  // Effect to handle animation triggering
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sliderRef.current) { // Check if the sliderRef is available
+        const rect = sliderRef.current.getBoundingClientRect();
+        // Check if the slider is in the viewport
+        if (rect.top <= window.innerHeight && rect.bottom >= 0 && !hasAnimated) {
+          setHasAnimated(true); // Set animation state to true
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [hasAnimated]);
+
   return (
     <div className="flex flex-col gap-8 py-16">
-      <div className="slider-container">
+      <div ref={sliderRef} className="slider-container"> {/* Attach ref to the slider container */}
         <Slider {...settings}>
-          {sliderImages.map((item) => (
-            <motion.div
-              key={item}
-              className="w-full aspect-video bg-secondaryText rounded-lg flex items-center justify-center"
-              variants={imageVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }} // Animation plays only once
-            >
-              <Image src={item} layout="fill" style={{ objectFit: "contain" }} alt={item} />
-            </motion.div>
+          {sliderImages?.map((item, index) => (
+            <div key={index} className="p-4"> {/* Add padding here to create space between slides */}
+              <motion.div
+                className="w-full aspect-video bg-secondaryText rounded-2xl overflow-hidden"
+                variants={imageVariants}
+                initial="hidden"
+                animate={hasAnimated ? "visible" : "hidden"} // Animate based on the state
+              >
+                <Image
+                  src={item}
+                  layout="fill"
+                  style={{ objectFit: "cover" }}
+                  alt={`Slide ${index}`}
+                />
+              </motion.div>
+            </div>
           ))}
         </Slider>
       </div>

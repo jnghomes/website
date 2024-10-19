@@ -1,31 +1,51 @@
-// app/components/CustomCursor.js
-"use client"; // Ensure this is a client component
-
-import React, { useEffect, useState } from 'react';
+// components/CustomCursor.js
+import { useRef, useEffect, useState } from 'react';
+import styles from './CustomCursor.module.css';
 
 const CustomCursor = () => {
-  const [cursor, setCursor] = useState({ x: 0, y: 0 });
-  const [hovered, setHovered] = useState(false); // State to track if hovered
+  const cursorRef = useRef(null);
+  const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      setCursor({ x: e.clientX, y: e.clientY });
+    const moveCursor = (e) => {
+      const { clientX: x, clientY: y } = e;
+
+      if (cursorRef.current) {
+        cursorRef.current.style.left = `${x}px`;
+        cursorRef.current.style.top = `${y}px`;
+      }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', moveCursor);
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mousemove', moveCursor);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleHover = (e) => {
+      // Check if the hovered element is a link, button, or has a "hover-target" class
+      if (e.target.closest('a, button, .hover-target')) {
+        setHovered(true);
+      } else {
+        setHovered(false);
+      }
+    };
+
+    window.addEventListener('mouseover', handleHover);
+    window.addEventListener('mouseout', handleHover);
+
+    return () => {
+      window.removeEventListener('mouseover', handleHover);
+      window.removeEventListener('mouseout', handleHover);
     };
   }, []);
 
   return (
     <div
-      className={`custom-cursor ${hovered ? 'hovered' : ''}`} // Apply class based on hover state
-      style={{
-        left: `${cursor.x}px`,
-        top: `${cursor.y}px`,
-      }}
+      ref={cursorRef}
+      className={`${styles.cursor} ${hovered ? styles.hovered : ''}`}
     />
   );
 };
