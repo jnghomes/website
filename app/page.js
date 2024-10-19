@@ -7,6 +7,7 @@ import { useLoading } from "@/utils/context/LoadingContext";
 import * as motion from "framer-motion/client";
 import Heading from "@/components/shared/Heading";
 import Testimonial from "@/components/shared/Testimonial";
+import { sliderImages } from "@/utils/constants";
 
 export default function Home() {
   const cardVariants = {
@@ -42,7 +43,7 @@ export default function Home() {
             {/* Moments of our Journey */}
           </motion.p>
         </div>
-        <SliderPage></SliderPage>
+        <SliderPage sliderImages={sliderImages}></SliderPage>
         <Testimonial></Testimonial>
       </div>
     </>

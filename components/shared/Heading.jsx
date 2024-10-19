@@ -16,18 +16,15 @@ const titleVariants = {
   },
 };
 
-
 function Heading({ text, color }) {
   return (
     <motion.h1
-    variants={titleVariants}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
+      variants={titleVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
       className={
-        color
-          ? "scroll-m-20 pb-2 text-4xl font-extrabold tracking-tight lg:text-5xl text-primaryText"
-          : "scroll-m-20 pb-2 text-4xl font-extrabold tracking-tight lg:text-5xl text-primaryText"
+        "scroll-m-20 pb-2 text-4xl font-extrabold tracking-tight lg:text-5xl text-primaryText hover-target"
       }
     >
       {text}

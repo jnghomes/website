@@ -50,7 +50,7 @@ function VideoCard({ index, title, content, videoURL, videoPoster }) {
       </div>
 
       <div className="flex flex-col gap-2 w-[100%] lg:w-[45%]">
-        <h4 className="scroll-m-20 text-2xl font-semibold tracking-tight text-primaryText ">{title}</h4>
+        <h4 className="scroll-m-20 text-2xl font-semibold tracking-tight text-primaryText hover-target">{title}</h4>
         <span className="w-64 h-[4px] bg-primaryAccent"></span>
         <p className="text-sm/relaxed text-gray-500">{content}</p>
       </div>

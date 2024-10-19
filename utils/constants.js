@@ -15,10 +15,10 @@ export const links = [
     name: "Projects",
     link: "/projects",
   },
-  {
-    name: "Services",
-    link: "/services",
-  },
+  // {
+  //   name: "Services",
+  //   link: "/services",
+  // },
 ];
 
 const bookingStatus = { open: "Open", soldOut: "Sold Out", handedOver: "Handed Over" };

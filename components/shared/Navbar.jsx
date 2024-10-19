@@ -24,17 +24,17 @@ function Navbar() {
     setLastScrollY(currentScrollY); // Update lastScrollY with the current scroll position
   };
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
 
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, [lastScrollY]);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
 
-  // useEffect(() => {
-  //   document.body.style.overflow = isOpen ? "hidden" : "auto";
-  // }, [isOpen]);
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
+  }, [isOpen]);
 
   // Animation variants for tab items
   const tabVariants = {
@@ -69,7 +69,7 @@ function Navbar() {
             </Link>
             <div className="flex gap-8">
               <ThemeToggle />
-              <div id="nav-icon3" className={isOpen ? "open" : ""} onClick={() => setIsOpen((prev) => !prev)}>
+              <div id="nav-icon3" className={isOpen ? "open hover-target" : "hover-target"} onClick={() => setIsOpen((prev) => !prev)}>
                 <span></span>
                 <span></span>
                 <span></span>
