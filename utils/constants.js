@@ -155,7 +155,7 @@ export const welcomePageParagraphsVideos = [
     content: `JNG Homes is a name synonymous with elegance, renowned for creating stunning residences that leave a lasting impression. Each home we craft is a testament to the transformative power of beauty, where every detail tells a story of sophistication and style.
       We've embraced a fresh perspective on refinement, designing exquisite living spaces tailored for those who appreciate the finer things in life. With JNG Homes, you’re not just acquiring a house; you’re stepping into a world where elegance meets comfort, and beauty resonates in every corner. Welcome to a home that reflects your unique essence, where timeless design and unparalleled craftsmanship converge.
       "`,
-    videoURL: "https://res.cloudinary.com/dchzeybwq/video/upload/v1729278049/video_1_home_page_qdmpdn.mp4",
+    videoURL: "https://res.cloudinary.com/dchzeybwq/video/upload/v1729278048/video_2_home_page_wj2pr7.mp4",
     videoPoster: "/images/video-poster.jpg",
   },
   {
@@ -164,8 +164,8 @@ export const welcomePageParagraphsVideos = [
     content: `At JNG Homes, we don’t just build houses; we craft dreams with unwavering integrity and a commitment to excellence. Our vision is clear and uncompromising, grounded in honesty that flows through every conversation, pricing decision, and material choice we make.
       Our team isn’t just here to meet standards; we set them. With a passion for exceptional service and an unparalleled level of care, we treat each project as a unique journey, ensuring that your vision comes to life with the utmost precision. At JNG Homes, we believe that a home is more than just a structure—it’s a reflection of who you are, built on a foundation of trust and dedication. Join us in creating spaces that inspire and elevate the everyday.
       `,
-    videoURL: "https://res.cloudinary.com/dchzeybwq/video/upload/v1729278048/video_2_home_page_wj2pr7.mp4",
-    videoPoster: "",
+    videoURL: "",
+    videoPoster: "https://res.cloudinary.com/dchzeybwq/video/upload/v1729278049/video_1_home_page_qdmpdn.mp4",
   },
   {
     sl: 3,
