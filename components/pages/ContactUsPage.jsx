@@ -2,7 +2,6 @@
 import { welcomePageProjects } from "@/utils/constants";
 import React, { useState } from "react";
 import Heading from "../shared/Heading";
-
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
@@ -23,6 +22,7 @@ function ContactUsPage() {
     email: "",
     project: "",
     phoneNumber: "",
+    query: "",
   });
   const [error, setError] = useState("");
 
@@ -36,7 +36,7 @@ function ContactUsPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { name, email, project, phoneNumber } = formData;
+    const { name, email, project, phoneNumber, query } = formData;
 
     if (!name || !email || !project || !phoneNumber) {
       setError("All fields are required.");
@@ -51,7 +51,7 @@ function ContactUsPage() {
       from: "info@jnghomes.in",
       to: "info@jnghomes.in",
       subject: `New Enquiry for ${project}`,
-      text: `New Enquiry for ${project} by ${name}. Email: ${email}, Phone Number: ${phoneNumber}`,
+      text: `New Enquiry for ${project} by ${name}. Email: ${email}, Phone Number: ${phoneNumber}. Query: ${query}`,
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
@@ -111,7 +111,7 @@ function ContactUsPage() {
         </label>
 
         <label
-          htmlFor="Email"
+          htmlFor="Phone Number"
           className="relative block rounded-md border border-primaryText shadow-sm focus-within:border-primaryAccent focus-within:ring-2 focus-within:ring-primaryAccent"
         >
           <input
@@ -153,6 +153,24 @@ function ContactUsPage() {
               </option>
             ))}
           </select>
+        </label>
+
+        <label
+          htmlFor="Query"
+          className="relative block rounded-md border border-primaryText shadow-sm focus-within:border-primaryAccent focus-within:ring-2 focus-within:ring-primaryAccent"
+        >
+          <input
+            type="text"
+            id="Query"
+            name="query"
+            value={formData.query}
+            onChange={handleChange}
+            className="w-full peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 p-2"
+            placeholder="Name"
+          />
+          <span className="bg-background pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 p-0.5 text-xs text-primaryText transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs">
+            Query
+          </span>
         </label>
 
         {error && <p className="text-red-500 text-sm">{error}</p>}
