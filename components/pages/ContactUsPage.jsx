@@ -2,19 +2,6 @@
 import { welcomePageProjects } from "@/utils/constants";
 import React, { useState } from "react";
 import Heading from "../shared/Heading";
-const nodemailer = require("nodemailer");
-
-const transporter = nodemailer.createTransport({
-  service: "Gmail",
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
-  auth: {
-    user: "info@jnghomes.in",
-    pass: process.env.GMAIL_PASSWORD,
-  },
-});
-console.log(JSON.stringify(process.env));
 
 function ContactUsPage() {
   const [formData, setFormData] = useState({
@@ -34,7 +21,7 @@ function ContactUsPage() {
     setError(""); // Clear error when user starts typing
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, email, project, phoneNumber, query } = formData;
 
@@ -47,33 +34,44 @@ function ContactUsPage() {
       setError("Please enter a valid email address.");
       return;
     }
-    const mailOptions = {
-      from: "info@jnghomes.in",
-      to: "info@jnghomes.in",
-      subject: `New Enquiry for ${project}`,
-      text: `New Enquiry for ${project} by ${name}. Email: ${email}, Phone Number: ${phoneNumber}. Query: ${query}`,
-    };
 
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        console.error("Error sending email: ", error);
+    try {
+      const response = await fetch("/api/sendEmail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, project, phoneNumber, query }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        console.log("Email sent:", result);
+        setFormData({
+          name: "",
+          email: "",
+          project: "",
+          phoneNumber: "",
+          query: "",
+        });
+        setError(""); // Clear error on successful submission
       } else {
-        console.log("Email sent: ", info.response);
+        setError(result.message || "Failed to send email.");
       }
-    });
-    console.log("Form submitted with data:", formData);
-    setFormData({
-      name: "",
-      email: "",
-      project: "",
-    });
-    setError(""); // Clear error on successful submission
+    } catch (error) {
+      console.error("Error submitting form: ", error);
+      setError("An error occurred while sending the email.");
+    }
   };
 
   return (
     <div className="w-full px-8 md:px-0 md:max-w-[80vw] mx-auto pt-12">
       <Heading text="Contact Us"></Heading>
-      <form onSubmit={handleSubmit} className="space-y-4 mt-12 max-w-sm mx-auto">
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-4 mt-12 max-w-sm mx-auto"
+      >
         <label
           htmlFor="Name"
           className="relative block rounded-md border border-primaryText shadow-sm focus-within:border-primaryAccent focus-within:ring-2 focus-within:ring-primaryAccent"
@@ -147,7 +145,11 @@ function ContactUsPage() {
                 key={project.sl}
                 value={project.url}
                 disabled={project.bookingStatus !== "Open"}
-                className={project.bookingStatus !== "Open" ? "text-gray-400" : "text-primaryText"}
+                className={
+                  project.bookingStatus !== "Open"
+                    ? "text-gray-400"
+                    : "text-primaryText"
+                }
               >
                 {project.title} - {project.bookingStatus}
               </option>
@@ -175,7 +177,10 @@ function ContactUsPage() {
 
         {error && <p className="text-red-500 text-sm">{error}</p>}
 
-        <button type="submit" className="bg-primaryAccent text-white px-4 py-2 rounded-md">
+        <button
+          type="submit"
+          className="bg-primaryAccent text-white px-4 py-2 rounded-md"
+        >
           Submit
         </button>
       </form>
