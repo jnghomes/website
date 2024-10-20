@@ -173,7 +173,7 @@ export const welcomePageParagraphsVideos = [
     content: `At JNG Homes, every experience is a delightful journey, uniquely crafted to reflect your aspirations. Each detail is a carefully curated masterpiece, featuring generous proportions and set in the most sought-after locales. We take pride in wearing the badge of honour as a real estate firm that embraces every facet of your home-buying adventure.
       With us, you’re not just finding a property; you’re discovering a lifestyle. Our commitment to excellence shines through in every interaction, ensuring that your path to your dream home is as pleasurable as it is seamless. Welcome to JNG Homes, where your vision becomes our mission, and every moment is designed to inspire.
       `,
-    videoURL: "https://res.cloudinary.com/dchzeybwq/video/upload/v1729278050/video_3_home_page_onynm8.mp4",
+    videoURL: "https://res.cloudinary.com/dchzeybwq/video/upload/v1729406418/pleasurable_an7a0h.mp4",
     videoPoster: "",
   },
 ];
