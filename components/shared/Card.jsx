@@ -41,7 +41,7 @@ function Card({ index, title, content, url, mainImageURL }) {
           <Image
             src={mainImageURL}
             layout="fill"
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: "cover" }}
             alt={title}
             className="rounded-md"
             // quality={5}
@@ -50,15 +50,10 @@ function Card({ index, title, content, url, mainImageURL }) {
       </Link>
 
       <div className="flex flex-col gap-2">
-        <h4 className="scroll-m-20 text-2xl font-semibold tracking-tight text-primaryText">
-          {title}
-        </h4>
+        <h4 className="scroll-m-20 text-2xl font-semibold tracking-tight text-primaryText">{title}</h4>
 
-        <p className="line-clamp-3 text-sm/relaxed text-gray-500">{content}</p>
-        <Link
-          href={`projects/${url}`}
-          className="relative inline-block group text-primaryAccent uppercase"
-        >
+        <p className="line-clamp-3 text-xl/relaxed text-gray-500">{content}</p>
+        <Link href={`projects/${url}`} className="relative inline-block group text-primaryAccent uppercase">
           Know More
           <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-text transition-all duration-300 ease-in-out group-hover:w-full"></span>
         </Link>
