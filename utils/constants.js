@@ -37,7 +37,11 @@ export const welcomePageProjects = [
     area: "9000 sq. ft.",
     bookingStatus: bookingStatus.open,
     brochure: "casa_palmera_brochure",
-    sliderImages: ["https://res.cloudinary.com/dchzeybwq/image/upload/v1729274140/NIGHT_1_kwgqyj.jpg"],
+    sliderImages: [
+      "https://res.cloudinary.com/dchzeybwq/image/upload/v1729274140/NIGHT_1_kwgqyj.jpg",
+      "https://res.cloudinary.com/dchzeybwq/image/upload/v1751374898/WhatsApp_Image_2025-06-23_at_11.52.09_yq045w.jpg",
+      "https://res.cloudinary.com/dchzeybwq/image/upload/v1751374898/WhatsApp_Image_2025-06-23_at_11.52.10_crw0sr.jpg",
+    ],
     category: "Under Construction",
     content: `Casa Palmera By JNG Homes is an eminent new project by JNG Homes, promised to provide a budget-friendly 2BHK units in the prime location of Raghunathpur, Bhubaneswar. Designed with the needs of budget-conscious customers in mind, Casa Palmera offers an perfect blend of affordability and quality. Set amidst serene surroundings, this development promises a tranquil retreat from the bustle of city life while providing easy access to essential amenities. Casa Palmera is near to the Upcoming Metro station.`,
   },

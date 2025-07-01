@@ -23,7 +23,7 @@ function WelcomePage() {
   return (
     <div className="flex flex-col gap-8 py-16">
       <Heading text="Welcome to JNG Homes"></Heading>
-      <div class="columns-1 md:columns-2 text-sm/relaxed text-gray-500 text-justify">
+      <div className="columns-1 md:columns-2 text-sm/relaxed text-gray-500 text-justify">
         <motion.p variants={cardVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
           Founded in 2003 as a turnkey contractor, JNG Homes Private Limited has now entered the real estate industry under the
           leadership of Mr. Gouranga Chandra Nayak, a veteran Civil Contractor. We are known for our expertise in making
@@ -38,7 +38,16 @@ function WelcomePage() {
       </div>
       <div className="flex flex-wrap gap-12 w-[100%] justify-center">
         {welcomePageParagraphsVideos.map((item) => {
-          return <VideoCard key={item.sl} index={item.sl} title={item.title} content={item.content} videoURL={item.videoURL} videoPoster={item.videoPoster}></VideoCard>;
+          return (
+            <VideoCard
+              key={item.sl}
+              index={item.sl}
+              title={item.title}
+              content={item.content}
+              videoURL={item.videoURL}
+              videoPoster={item.videoPoster}
+            ></VideoCard>
+          );
         })}
       </div>
     </div>
