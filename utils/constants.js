@@ -97,7 +97,10 @@ export const welcomePageProjects = [
     area: "28,000 sq.ft.",
     bookingStatus: bookingStatus.handedOver,
     brochure: "",
-    sliderImages: [],
+    sliderImages: [
+      "https://res.cloudinary.com/dchzeybwq/image/upload/v1751378478/WhatsApp_Image_2025-07-01_at_18.50.07_l3a0si.jpg",
+      "https://res.cloudinary.com/dchzeybwq/image/upload/v1751378477/WhatsApp_Image_2025-07-01_at_18.49.53_wsp6zn.jpg",
+    ],
     category: "Completed",
     content: `This is a Turnkey construction project, we delivered with our best efforts and qualities. This project is situated in AIIMS Nagar Patrapada, Bhubaneswar. This is a 5-storey apartment with 20 units of 2 BHK and 3 BHK Flats. Total Built up area of this project is 28,000 sq.ft.`,
   },
