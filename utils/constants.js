@@ -80,7 +80,11 @@ export const welcomePageProjects = [
     area: "",
     brochure: "gp_platinum_brochure",
     bookingStatus: bookingStatus.soldOut,
-    sliderImages: [],
+    sliderImages: [
+      "https://res.cloudinary.com/dchzeybwq/image/upload/v1751388314/WhatsApp_Image_2025-07-01_at_22.12.54_atpl4l.jpg",
+      "https://res.cloudinary.com/dchzeybwq/image/upload/v1751388313/WhatsApp_Image_2025-07-01_at_22.12.35_syvz0d.jpg",
+      "https://res.cloudinary.com/dchzeybwq/image/upload/v1751388312/WhatsApp_Image_2025-07-01_at_22.12.27_u9buno.jpg",
+    ],
     category: "Completed",
     content: `A landmark for luxury lifestyle, where we delivered specious 3 BHK Vastu compliant flats. This is a 3-storey apartment established near to KIIT Square. The best part of this project is, we just completed this project in 10 months only.`,
   },
@@ -126,7 +130,7 @@ export const welcomePageProjects = [
       "https://res.cloudinary.com/dchzeybwq/image/upload/v1751355886/IMG_5849_zedaxt.jpg",
     ],
     category: "Completed",
-    content: `This is a Turnkey construction project, we delivered with our best efforts and qualities. This project is situated in AIIMS Nagar Patrapada, Bhubaneswar. This is a 5-storey apartment with 20 units of 2 BHK and 3 BHK Flats. Total Built up area of this project is 28,000 sq.ft.`,
+    content: `This is a Turnkey construction project, we delivered with our best efforts and qualities. This project is situated on the NH-16, Patrapada, Bhubaneswar. This is a B+S+4 storey commercial space with total Built up area of 40,000 sq.ft.`,
   },
 ];
 
