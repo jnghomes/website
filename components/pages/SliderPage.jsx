@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import * as motion from "framer-motion/client";
 import Image from "next/image";
 
-function SliderPage({sliderImages}) {
+function SliderPage({ sliderImages }) {
   const [hasAnimated, setHasAnimated] = useState(false); // State to track animation
   const sliderRef = useRef(null); // Create a ref for the slider container
 
@@ -35,7 +35,8 @@ function SliderPage({sliderImages}) {
   // Effect to handle animation triggering
   useEffect(() => {
     const handleScroll = () => {
-      if (sliderRef.current) { // Check if the sliderRef is available
+      if (sliderRef.current) {
+        // Check if the sliderRef is available
         const rect = sliderRef.current.getBoundingClientRect();
         // Check if the slider is in the viewport
         if (rect.top <= window.innerHeight && rect.bottom >= 0 && !hasAnimated) {
@@ -44,30 +45,29 @@ function SliderPage({sliderImages}) {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [hasAnimated]);
 
   return (
     <div className="flex flex-col gap-8 py-16">
-      <div ref={sliderRef} className="slider-container"> {/* Attach ref to the slider container */}
+      <div ref={sliderRef} className="slider-container">
+        {" "}
+        {/* Attach ref to the slider container */}
         <Slider {...settings}>
           {sliderImages?.map((item, index) => (
-            <div key={index} className="p-4"> {/* Add padding here to create space between slides */}
+            <div key={index} className="p-4">
+              {" "}
+              {/* Add padding here to create space between slides */}
               <motion.div
                 className="w-full aspect-video bg-secondaryText rounded-2xl overflow-hidden"
                 variants={imageVariants}
                 initial="hidden"
                 animate={hasAnimated ? "visible" : "hidden"} // Animate based on the state
               >
-                <Image
-                  src={item}
-                  layout="fill"
-                  style={{ objectFit: "cover" }}
-                  alt={`Slide ${index}`}
-                />
+                <Image src={item} layout="fill" style={{ objectFit: "contain" }} alt={`Slide ${index}`} />
               </motion.div>
             </div>
           ))}

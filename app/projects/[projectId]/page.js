@@ -46,11 +46,11 @@ function page() {
   // href={`/public/${currentProject.brochure}.pdf`} download={`${currentProject.brochure}.pdf`}
   return (
     <>
-      <div className="flex flex-col h-screen">
-        <div className="relative h-[70vh] bg-primaryAccent overflow-hidden">
+      <div className="flex flex-col">
+        <div className="relative h-[60vh] bg-primaryAccent overflow-hidden">
           <Image src={currentProject.mainImageURL} layout="fill" className="object-cover" alt={currentProject.title} />
         </div>
-        <div className="flex flex-col items-start justify-center px-8 md:px-0 md:max-w-[80vw] mx-auto h-[30vh]">
+        <div className="flex flex-col items-start justify-center px-8 md:px-0 md:max-w-[80vw] mx-auto mt-8">
           <div className="flex items-center justify-between w-full">
             <SubHeading text={currentProject.title} />
             {currentProject.brochure && (
@@ -88,7 +88,7 @@ function page() {
           <div className="aspect-[4/5] w-2/5 lg:w-1/3 rounded-lg bg-secondaryText"></div>
           <div className="aspect-[4/5] w-2/5 lg:w-1/3 rounded-lg bg-secondaryText"></div>
         </motion.div> */}
-        <div className="flex flex-col lg:flex-row gap-4 lg:gap-16">
+        <div className="flex flex-col lg:flex-row gap-2 lg:gap-8 mt-16">
           <SubHeading text="Information"></SubHeading>
           <div className="text-2xl/relaxed text-gray-500 text-justify lg:w-3/5">
             <div
@@ -123,7 +123,7 @@ function page() {
             </div>
           </div>
         </div>
-        <SliderPage sliderImages={sliderImages}></SliderPage>
+        <SliderPage sliderImages={currentProject.sliderImages}></SliderPage>
       </div>
     </>
   );
