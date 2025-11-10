@@ -15,6 +15,10 @@ export const links = [
     name: "Projects",
     link: "/projects",
   },
+  {
+    name: "Land Owner",
+    link: "/landowner",
+  },
   // {
   //   name: "Services",
   //   link: "/services",
@@ -132,6 +136,27 @@ export const welcomePageProjects = [
     category: "Completed",
     content: `This is a Turnkey construction project, we delivered with our best efforts and qualities. This project is situated on the NH-16, Patrapada, Bhubaneswar. This is a B+S+4 storey commercial space with total Built up area of 40,000 sq.ft.`,
   },
+  {
+    sl: 6,
+    title: "The Crescent by JNG Homes",
+    url: "crescent",
+    mainImageURL: "https://res.cloudinary.com/dchzeybwq/image/upload/v1762769282/crescent_2_wmbyup.jpg",
+    subHeading1URL: "",
+    subHeading2URL: "",
+    sliderURLs: [],
+    type: "3BHK",
+    units: "8",
+    area: "18,000 sq.ft.",
+    bookingStatus: bookingStatus.open,
+    brochure: "crescent",
+    sliderImages: [
+      "https://res.cloudinary.com/dchzeybwq/image/upload/v1762769287/crescent_1_jc4ovw.jpg",
+      "https://res.cloudinary.com/dchzeybwq/image/upload/v1762769282/crescent_2_wmbyup.jpg",
+      "https://res.cloudinary.com/dchzeybwq/image/upload/v1762769817/crescent_terrace_tfdka0.jpg",
+    ],
+    category: "On",
+    content: `The Crescent by JNG homes is a Uber segment apartment project. It has 8 Nos of spacious 3 BHK flat in a posh location of Bhubaneswar. Designed with 100% Vastu compliant floors. We focus on this project to provide ample light and ventilation. A roof top swimming pool, EV charging points with spacious car parking , Roof top garden and many more.`,
+  },
 ];
 
 export const testimonials = [
@@ -236,4 +261,17 @@ export const sliderImages = [
   "https://res.cloudinary.com/dchzeybwq/image/upload/v1729274446/gp_platinum_front_smliqb.jpg",
   "https://res.cloudinary.com/dchzeybwq/image/upload/v1729275207/almo_residency_main_mvix47.jpg",
   "https://res.cloudinary.com/dchzeybwq/image/upload/v1729276127/WhatsApp_Image_2023-07-20_at_12.14.27_PM_1_ptqrxf.jpg",
+];
+
+export const jointVenture = [
+  {
+    sl: 1,
+    name: "Land for Joint Development",
+    key: "land_for_joint_development",
+  },
+  {
+    sl: 1,
+    name: "Land for Out Rate Purchase",
+    key: "land_for_our_rate_purchase",
+  },
 ];
